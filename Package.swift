@@ -12,13 +12,29 @@ let package = Package(
         .library(
             name: "PayPalCheckoutWrapper",
             targets: ["PayPalCheckoutDup"] // Name of your binary target
-        )
+        ),
+        .library(
+             name: "CorePayments",
+             targets: ["CorePayments"]
+         ),
+         .library(
+            name: "PayPalNativePayments",
+            targets: ["PayPalNativePayments"]
+         )
     ],
     targets: [
         .binaryTarget(
             name: "PayPalCheckoutDup",
             url: "https://github.com/paypal/paypalcheckout-ios/releases/download/1.2.0/PayPalCheckout.xcframework.zip",
             checksum: "de177ea050cfd342aa1bbfe0d9ed7faf8262270a0291a5862b6ee3c7f85cc1ff"
+        ),
+        .target(
+            name: "CorePayments",
+            dependencies: []
+        ),
+        .target(
+             name: "PayPalNativePayments",
+             dependencies: ["CorePayments", "PayPalCheckoutDup"]
         )
     ]
 )
