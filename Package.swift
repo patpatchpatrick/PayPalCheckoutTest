@@ -4,18 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "PayPalBinaryPackageTest",
+    name: "PayPalCheckoutWrapper",
+    platforms: [
+        .iOS(.v14) // Adjust as needed
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "PayPalBinaryPackageTest",
-            targets: ["PayPalBinaryPackageTest"]),
+            name: "PayPalCheckoutWrapper",
+            targets: ["PayPalCheckoutDup"] // Name of your binary target
+        )
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "PayPalBinaryPackageTest"),
-
+        .binaryTarget(
+            name: "PayPalCheckoutDup",
+            url: "https://github.com/paypal/paypalcheckout-ios/releases/download/1.2.0/PayPalCheckout.xcframework.zip",
+            checksum: "de177ea050cfd342aa1bbfe0d9ed7faf8262270a0291a5862b6ee3c7f85cc1ff"
+        )
     ]
 )
