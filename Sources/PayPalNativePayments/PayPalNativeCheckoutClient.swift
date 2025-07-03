@@ -1,5 +1,7 @@
 import UIKit
 import PayPalCheckout
+import CorePayments
+
 // swiftlint:disable all
 /// PayPal Paysheet to handle PayPal transaction
 /// encapsulates instance to communicate with nxo

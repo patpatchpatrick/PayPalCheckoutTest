@@ -1,4 +1,5 @@
 import PayPalCheckout
+import CorePayments
 
 private typealias PayPalEnvironment = PTDEnvironment
 
